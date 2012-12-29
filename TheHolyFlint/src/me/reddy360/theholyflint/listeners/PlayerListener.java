@@ -124,13 +124,14 @@ public class PlayerListener implements Listener {
 	
 	
 	@EventHandler
-	public void onIteract(PlayerInteractEvent e){
+	public void onInteract(PlayerInteractEvent e){
 		Player player = e.getPlayer();
 		if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.hasPermission(pluginMain.pluginManager.getPermission("thf.position")) && 
 				(player.getItemInHand().getTypeId() == Item.BLAZE_ROD.id)){
 			Location location = e.getClickedBlock().getLocation();
 			String position = location.getWorld().getName() + ":" + location.getBlockX() + ":" + location.getBlockY() + ":" + location.getBlockZ();
 			player.sendMessage("Position Set: " + position);
+			PluginMain.setPos(player.getName(), position);
 		}
 	}
 

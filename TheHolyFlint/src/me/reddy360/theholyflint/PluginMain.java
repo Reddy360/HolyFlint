@@ -1,6 +1,7 @@
 package me.reddy360.theholyflint;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -10,6 +11,7 @@ import me.reddy360.theholyflint.command.CommandDuty;
 import me.reddy360.theholyflint.command.CommandGamemode;
 import me.reddy360.theholyflint.command.CommandGive;
 import me.reddy360.theholyflint.command.CommandKick;
+import me.reddy360.theholyflint.command.CommandLocation;
 import me.reddy360.theholyflint.command.CommandMute;
 import me.reddy360.theholyflint.command.CommandSetSpawn;
 import me.reddy360.theholyflint.command.CommandUnban;
@@ -31,6 +33,8 @@ public class PluginMain extends JavaPlugin{
 	public PluginManager pluginManager;
 	public List<String> mutedPlayers = new ArrayList<String>();
 	public Logger log;
+	public boolean serverStatusSigns = false;;
+	private static HashMap<String, String> positions = new HashMap<String, String>();
 	@Override
 	public void onEnable() {
 		log = this.getLogger();
@@ -70,8 +74,13 @@ public class PluginMain extends JavaPlugin{
 		pluginManager.addPermission(new Permission("thf.drop.destroy", PermissionDefault.FALSE));
 		pluginManager.addPermission(new Permission("thf.give", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.give.other", PermissionDefault.OP));
+		pluginManager.addPermission(new Permission("thf.positions", PermissionDefault.OP));
 		
 		
+		//Config Checking
+		if(getConfig().contains("Signs.ServerStatus")){
+			serverStatusSigns = true;
+		}
 		
 		
 		//Commands
@@ -84,6 +93,7 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("gamemode").setExecutor(new CommandGamemode(this));
 		this.getCommand("discostick").setExecutor(new CommandDiscoStick(this));
 		this.getCommand("give").setExecutor(new CommandGive(this));
+		this.getCommand("location").setExecutor(new CommandLocation(this));
 	}
 	
 	public static void setPlayerRank(String player, String rank){
@@ -92,5 +102,19 @@ public class PluginMain extends JavaPlugin{
 			ApiLayer.removeGroup("world", CalculableType.USER, player, groups[0]);
 		}
 		ApiLayer.addGroup("world", CalculableType.USER, player, rank);
+	}
+
+	public static void setPos(String name, String position) {
+		if(positions.containsKey(name)){
+			positions.remove(position);
+		}
+		positions.put(name, position);
+	}
+
+	public String getLocation(String player) {
+		if(positions.containsKey(player)){
+			return positions.get(player);
+		}
+		return null;
 	}
 }
