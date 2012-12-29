@@ -17,6 +17,9 @@ public class Signs {
 			String[] points = pluginMain.getConfig().getString("Signs.ServerStatus").split(":");
 			Location location = new Location(Bukkit.getWorld(points[0]), Integer.parseInt(points[1]), Integer.parseInt(points[2]), Integer.parseInt(points[3]));
 			Sign sign = (Sign) location.getBlock();
+			if(points.length != 4){
+				return;
+			}
 			for(int x = 0; x <= 3; x++){
 				sign.setLine(x, ChatColor.translateAlternateColorCodes('&', status[x]));
 			}
