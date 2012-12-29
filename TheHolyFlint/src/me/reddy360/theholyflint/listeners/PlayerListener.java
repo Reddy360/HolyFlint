@@ -126,7 +126,7 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e){
 		Player player = e.getPlayer();
-		if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.hasPermission(pluginMain.pluginManager.getPermission("thf.position")) && 
+		if(e.getAction() == Action.RIGHT_CLICK_BLOCK && player.hasPermission(pluginMain.pluginManager.getPermission("thf.positions")) && 
 				(player.getItemInHand().getTypeId() == Item.BLAZE_ROD.id)){
 			Location location = e.getClickedBlock().getLocation();
 			String position = location.getWorld().getName() + ":" + location.getBlockX() + ":" + location.getBlockY() + ":" + location.getBlockZ();

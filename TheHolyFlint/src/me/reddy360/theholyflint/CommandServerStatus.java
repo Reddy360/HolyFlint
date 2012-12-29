@@ -25,8 +25,15 @@ public class CommandServerStatus implements CommandExecutor {
 			sender.sendMessage("You need 4 arguments, if you're not using a line just do '&r' on the argument");
 			return true;
 		}
-		Signs.setServerStatus(args);
+		Signs.setServerStatus(toString(args).split("::"));
 		return false;
+	}
+	private String toString(String[] args) {
+		String returnValue = "";
+		for(String message : args){
+			returnValue = returnValue + message;
+		}
+		return returnValue;
 	}
 
 }

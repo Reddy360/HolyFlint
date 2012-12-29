@@ -38,3 +38,10 @@ commands:
         usage: /give player stone 1
         description: Spawns items!
         aliases: [i, item, g]
+    location:
+        usage: /Location <Location name>
+        description: Used to define locations for other methods/commands
+        aliases: [loc, l]
+    serverstatus:
+        usage: /ServerStatus <Message>
+        
