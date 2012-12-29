@@ -34,6 +34,10 @@ public class CommandLocation implements CommandExecutor {
 					return true;
 				}
 				pluginMain.getConfig().set("Signs.ServerStatus", location);
+				pluginMain.saveConfig();
+				sender.sendMessage("Set serverstatus to " + location);
+				pluginMain.serverStatusSigns = true;
+				return true;
 			}
 		}
 		sender.sendMessage("Usable Locations: ServerStatus");
