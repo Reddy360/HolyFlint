@@ -76,6 +76,7 @@ public class PluginMain extends JavaPlugin{
 		pluginManager.addPermission(new Permission("thf.give.other", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.positions", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.serverstatus", PermissionDefault.OP));
+		pluginManager.addPermission(new Permission("thf.location", PermissionDefault.OP));
 		
 		
 		//Config Checking
