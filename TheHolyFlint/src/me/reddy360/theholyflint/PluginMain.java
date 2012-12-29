@@ -51,9 +51,9 @@ public class PluginMain extends JavaPlugin{
 		//Auto save
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable(){@Override
 		public void run() {
-			Bukkit.broadcastMessage(ChatColor.GRAY + "" + ChatColor.ITALIC + "[THF] Saving World!");
+			Signs.setServerStatus(new String[]{"", "Saving World...", "", ""});
 			Bukkit.getWorld("world").save();
-			Bukkit.broadcastMessage(ChatColor.GRAY + "" + ChatColor.ITALIC + "[THF] World Saved!");
+			Signs.setServerStatus(new String[]{"", ChatColor.GREEN + "Online", "", ""});
 		}}, 5 * 20 * 60, 5 * 20 * 60);
 		
 		//Permissions
@@ -75,11 +75,13 @@ public class PluginMain extends JavaPlugin{
 		pluginManager.addPermission(new Permission("thf.give", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.give.other", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.positions", PermissionDefault.OP));
+		pluginManager.addPermission(new Permission("thf.serverstatus", PermissionDefault.OP));
 		
 		
 		//Config Checking
 		if(getConfig().contains("Signs.ServerStatus")){
 			serverStatusSigns = true;
+			Signs.setServerStatus(new String[]{"", ChatColor.GREEN + "Online!", "", ""});
 		}
 		
 		
@@ -94,6 +96,7 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("discostick").setExecutor(new CommandDiscoStick(this));
 		this.getCommand("give").setExecutor(new CommandGive(this));
 		this.getCommand("location").setExecutor(new CommandLocation(this));
+		this.getCommand("serverstatus").setExecutor(new CommandServerStatus(this));
 	}
 	
 	public static void setPlayerRank(String player, String rank){

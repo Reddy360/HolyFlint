@@ -1,6 +1,7 @@
 package me.reddy360.theholyflint;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Sign;
 
@@ -17,7 +18,7 @@ public class Signs {
 			Location location = new Location(Bukkit.getWorld(points[0]), Integer.parseInt(points[1]), Integer.parseInt(points[2]), Integer.parseInt(points[3]));
 			Sign sign = (Sign) location.getBlock();
 			for(int x = 0; x <= 3; x++){
-				sign.setLine(x, status[x]);
+				sign.setLine(x, ChatColor.translateAlternateColorCodes('&', status[x]));
 			}
 		}
 	}
