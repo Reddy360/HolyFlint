@@ -1,0 +1,47 @@
+name: TheHolyFlint
+version: 1.0 Alpha
+main: me.reddy360.theholyflint.PluginMain
+authors: [reddy360, ffaen123]
+commands:
+    setspawn:
+        usage: /setspawn
+        description: Setting the world spawn!
+    mute:
+        usage: /mute [player]
+        description: Mutes a player!
+        aliases: m
+    duty:
+        usage: /duty
+        description: Puts an admin on duty!
+        aliases: d
+    ban:
+        usage: /ban [player] [reason]
+        description: Bans a player!
+        aliases: b
+    kick:
+        usage: /kick [player] [reason]
+        description: Kicks a player!
+        aliases: k
+    unban:
+        usage: /unban [player]
+        description: Unbans a player!
+        aliases: pardon
+    gamemode:
+        usage: /gamemode
+        description: Toggles between survival and creative!
+        aliases: gm
+    discostick:
+        usage: /discostick
+        description: Makes disco
+        aliases: [ds, disco]
+    give:
+        usage: /give player stone 1
+        description: Spawns items!
+        aliases: [i, item, g]
+    location:
+        usage: /Location <Location name>
+        description: Used to define locations for other methods/commands
+        aliases: [loc, l]
+    serverstatus:
+        usage: /ServerStatus <Message>
+        
