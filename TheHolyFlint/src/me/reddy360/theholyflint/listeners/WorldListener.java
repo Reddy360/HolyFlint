@@ -138,6 +138,7 @@ public class WorldListener implements Listener {
 				player.setVelocity(direction.multiply(Float.parseFloat(line.split(":")[1])));
 //				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.parseInt(line.split(":")[1]) * 2 * 20, 5)
 //					, true);
+				player.setNoDamageTicks(20);
 			}catch(NumberFormatException e){
 				
 			}

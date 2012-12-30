@@ -144,7 +144,7 @@ public class PlayerListener implements Listener {
 			if(killer.getItemInHand().getTypeId() == Item.STICK.id){
 				if(killer.getItemInHand().getItemMeta().hasDisplayName()){
 					if(killer.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.DARK_RED + "Disco Stick"));
-						e.setDeathMessage(ChatColor.BLUE + player.getName() + " was discoed.");
+						e.setDeathMessage(ChatColor.GRAY + player.getName() + " was discoed.");
 				}
 			}
 		}
