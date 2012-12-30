@@ -74,9 +74,7 @@ public class PlayerListener implements Listener {
 			return ChatColor.GRAY + playerName + " joined!";
 		}else if(groupName.equalsIgnoreCase("VIP")){
 			return ChatColor.DARK_AQUA + playerName + ", a VIP joined!";
-		}else if(groupName.equalsIgnoreCase("Admin")){
-			return ChatColor.GOLD + playerName + ", an Admin joined!";
-		}else if(groupName.equalsIgnoreCase("AdminOffDuty")){
+		}else if(groupName.equalsIgnoreCase("Admin") || groupName.equalsIgnoreCase("AdminOffDuty" )){
 			return ChatColor.GOLD + playerName + ", an Admin joined!";
 		}else{
 			return null;

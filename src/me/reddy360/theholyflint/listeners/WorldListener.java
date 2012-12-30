@@ -175,6 +175,11 @@ public class WorldListener implements Listener {
 			}
 			String[] lines = line.split(":");
 			player.addPotionEffect(new PotionEffect(PotionEffectType.getById(Integer.parseInt(lines[1])), Integer.parseInt(lines[2]), Integer.parseInt(lines[3]), true));
+		}else if(line.startsWith("NoDamage:")){
+			if(line.split(":").length == 1){
+				return;
+			}
+			player.setNoDamageTicks(Integer.parseInt(line.split(":")[1]) * 20);
 		}
 	}
 }
