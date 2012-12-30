@@ -25,7 +25,7 @@ public class CommandSetTP implements CommandExecutor {
 			return true;
 		}else if(args.length == 1){
 			Player player = (Player) sender;
-			pluginMain.getConfig().set("coords." + args[0], player.getLocation().getWorld() + ":" + player.getLocation().getBlockX() 
+			pluginMain.getConfig().set("coords." + args[0], player.getLocation().getWorld().getName() + ":" + player.getLocation().getBlockX() 
 					+ ":" + player.getLocation().getBlockY() + ":" + player.getLocation().getBlockZ());
 			pluginMain.saveConfig();
 			player.sendMessage(ChatColor.GREEN + "TP Sign Coord set at" + pluginMain.getConfig().getString("coords." + args[0]));
