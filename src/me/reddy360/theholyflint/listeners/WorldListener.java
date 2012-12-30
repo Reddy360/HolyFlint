@@ -10,6 +10,7 @@ import org.bukkit.block.Chest;
 import org.bukkit.block.Dispenser;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.ItemFrame;
+import org.bukkit.entity.Painting;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -77,6 +78,12 @@ public class WorldListener implements Listener {
 	
 	@EventHandler
 	public void onSignChange(SignChangeEvent e){
+		if(e.getLine(1).equalsIgnoreCase("[THF]")){
+			if(!(e.getPlayer().hasPermission(pluginMain.pluginManager.getPermission("thf.makesign")))){
+				e.setCancelled(true);
+				e.getPlayer().sendMessage(ChatColor.DARK_RED + "You do not have permission to create [THF] signs.");
+			}
+		}
 		for(int x = 0; x < 4; x++){
 			e.setLine(x, ChatColor.translateAlternateColorCodes('&', e.getLine(x)));
 		}
@@ -85,7 +92,7 @@ public class WorldListener implements Listener {
 	@EventHandler
 	public void onEntityInteract(PlayerInteractEntityEvent e){
 		Player player = e.getPlayer();
-		if(e.getRightClicked() instanceof ItemFrame){
+		if(e.getRightClicked() instanceof ItemFrame || e.getRightClicked() instanceof Painting){
 			if(player.hasPermission(pluginMain.pluginManager.getPermission("thf.world.modify"))){
 				
 			}
