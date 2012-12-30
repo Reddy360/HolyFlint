@@ -15,6 +15,7 @@ import me.reddy360.theholyflint.command.CommandGive;
 import me.reddy360.theholyflint.command.CommandKick;
 import me.reddy360.theholyflint.command.CommandLocation;
 import me.reddy360.theholyflint.command.CommandMute;
+//import me.reddy360.theholyflint.command.CommandServerStatus;
 import me.reddy360.theholyflint.command.CommandSetSpawn;
 import me.reddy360.theholyflint.command.CommandSetTP;
 import me.reddy360.theholyflint.command.CommandTrainCannon;
@@ -105,7 +106,7 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("discostick").setExecutor(new CommandDiscoStick(this));
 		this.getCommand("give").setExecutor(new CommandGive(this));
 		this.getCommand("location").setExecutor(new CommandLocation(this));
-//		this.getCommand("serverstatus").setExecutor(new CommandServerStatus(this));
+		//this.getCommand("serverstatus").setExecutor(new CommandServerStatus(this));
 		this.getCommand("traincannon").setExecutor(new CommandTrainCannon(this));
 		this.getCommand("settp").setExecutor(new CommandSetTP(this));
 		
