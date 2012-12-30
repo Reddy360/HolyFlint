@@ -161,10 +161,7 @@ public class WorldListener implements Listener {
 			}
 			
 			
-		}else if(line.startsWith("Chest:")){
-			if(line.split(":").length == 1){
-				return;
-			}
+		}else if(line.startsWith("Chest")){
 			Location location = signLocation;
 			location.setY(location.getY() - 1);
 			if(location.getBlock().getTypeId() == Block.CHEST.id){
