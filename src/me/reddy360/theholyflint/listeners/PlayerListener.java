@@ -8,19 +8,23 @@ import org.bukkit.ChatColor;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent.Result;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.permissions.Permission;
 
 import de.bananaco.bpermissions.api.ApiLayer;
@@ -133,6 +137,20 @@ public class PlayerListener implements Listener {
 			player.sendMessage("Position Set: " + position);
 			PluginMain.setPos(player.getName(), position);
 		}
+	}
+	@EventHandler
+	public void onDeath(PlayerDeathEvent e){
+		Player player = ((OfflinePlayer) e).getPlayer();
+		if(player.getKiller() != null){
+			Player killer = player.getKiller();
+			if(killer.getItemInHand().getTypeId() == Item.STICK.id){
+				if(killer.getItemInHand().getItemMeta().hasDisplayName()){
+					if(killer.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.DARK_RED + "Disco Stick"));
+						e.setDeathMessage(ChatColor.BLUE + player.getName() + " was discoed.");
+				}
+			}
+		}
+		
 	}
 
 }
