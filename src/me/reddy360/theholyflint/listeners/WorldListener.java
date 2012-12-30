@@ -6,6 +6,7 @@ import net.minecraft.server.v1_4_6.Item;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Dispenser;
@@ -182,8 +183,11 @@ public class WorldListener implements Listener {
 			if(line.split(":").length != 2){
 				return;
 			}
-			String[] split = pluginMain.getConfig().getString("Coords." + line.split(":")[1]).split(":");
+			String[] split = pluginMain.getConfig().getString("coords." + line.split(":")[1]).split(":");
 			Location location = new Location(Bukkit.getWorld(split[0]), Integer.parseInt(split[1]) + 0.5, Integer.parseInt(split[2]) + 0.5, Integer.parseInt(split[3]) + 0.5);
+			location.setPitch(player.getLocation().getPitch());
+			location.setYaw(player.getLocation().getYaw());
+			player.playEffect(player.getLocation(), Effect.MOBSPAWNER_FLAMES, 0);
 			player.teleport(location);
 		}
 	}
