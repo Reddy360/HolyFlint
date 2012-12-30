@@ -138,16 +138,12 @@ public class WorldListener implements Listener {
 				player.setVelocity(direction.multiply(Float.parseFloat(line.split(":")[1])));
 //				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.parseInt(line.split(":")[1]) * 2 * 20, 5)
 //					, true);
-				player.setFallDistance(Float.parseFloat(line.split(":")[1]) - (Float.parseFloat(line.split(":")[1]) * 2));
 			}catch(NumberFormatException e){
 				
 			}
 			
 			
-		}else if(line.startsWith("Chest:")){
-			if(line.split(":").length == 1){
-				return;
-			}
+		}else if(line.equalsIgnoreCase("Chest")){
 			Location location = signLocation;
 			location.setY(location.getY() - 1);
 			if(location.getBlock().getTypeId() == Block.CHEST.id){
