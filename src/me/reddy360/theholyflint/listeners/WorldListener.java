@@ -26,6 +26,9 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
+import de.bananaco.bpermissions.api.ApiLayer;
+import de.bananaco.bpermissions.api.util.CalculableType;
+
 public class WorldListener implements Listener {
 	PluginMain pluginMain;
 	public WorldListener(PluginMain pluginMain) {
@@ -119,6 +122,7 @@ public class WorldListener implements Listener {
 		if(location.getBlock().getState() instanceof Sign){
 			Sign sign = (Sign) location.getBlock().getState();
 			if(sign.getLine(1).equalsIgnoreCase("[THF]")){
+				if(sign.getLine(3) == null || ApiLayer.hasGroup("world", CalculableType.USER, e.getPlayer().getName(), sign.getLine(3)))
 				doSignEvent(sign.getLine(2), player, location);
 			}
 		}

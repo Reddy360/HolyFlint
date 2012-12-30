@@ -102,7 +102,7 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("serverstatus").setExecutor(new CommandServerStatus(this));
 		
 		
-		//Config Checking
+		//Configuration Checking
 //		if(getConfig().contains("Signs.ServerStatus")){
 //			serverStatusSigns = true;
 //			Signs.setServerStatus(new String[]{"", ChatColor.GREEN + "Online!", "", ""});
