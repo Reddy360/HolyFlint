@@ -60,9 +60,9 @@ public class PluginMain extends JavaPlugin{
 		//Auto save
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable(){@Override
 		public void run() {
-			Signs.setServerStatus(new String[]{"", "Saving World...", "", ""});
+//			Signs.setServerStatus(new String[]{"", "Saving World...", "", ""});
 			Bukkit.getWorld("world").save();
-			Signs.setServerStatus(new String[]{"", ChatColor.GREEN + "Online", "", ""});
+//			Signs.setServerStatus(new String[]{"", ChatColor.GREEN + "Online", "", ""});
 		}}, 5 * 20 * 60, 5 * 20 * 60);
 		
 		//Permissions
@@ -87,7 +87,10 @@ public class PluginMain extends JavaPlugin{
 		pluginManager.addPermission(new Permission("thf.serverstatus", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.location", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.makesign", PermissionDefault.OP));
-		
+		List<String> groups = getConfig().getStringList("Groups");
+		for(String group : groups){
+			pluginManager.addPermission(new Permission("thf.group." + group, PermissionDefault.FALSE));
+		}
 		
 		//Commands
 		this.getCommand("setspawn").setExecutor(new CommandSetSpawn());

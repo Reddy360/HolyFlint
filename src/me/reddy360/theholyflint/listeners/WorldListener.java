@@ -132,7 +132,7 @@ public class WorldListener implements Listener {
 				if(sign.getLine(3).equalsIgnoreCase("")){
 					doSignEvent(sign.getLine(2), player, location);
 					return;
-				}else if(ApiLayer.hasGroup("world", CalculableType.USER, e.getPlayer().getName(), sign.getLine(3))){
+				}else if(player.hasPermission(pluginMain.pluginManager.getPermission("thf.group." + sign.getLine(3)))){
 					doSignEvent(sign.getLine(2), player, location);
 					return;
 				}else{

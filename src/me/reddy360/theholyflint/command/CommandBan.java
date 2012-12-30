@@ -49,7 +49,7 @@ public class CommandBan implements CommandExecutor {
 				sender.sendMessage(ChatColor.DARK_RED + "You can't ban me! I'm exempt!");
 				return true;
 			}
-			player.kickPlayer("[THF] Banned: " + convertArgs(args));
+			player.kickPlayer(ChatColor.translateAlternateColorCodes('&', "[THF] Banned: " + convertArgs(args)));
 			pluginMain.getConfig().set("banned." + player.getName(), "[THF] Banned: " + convertArgs(args));
 		}
 		return true;
