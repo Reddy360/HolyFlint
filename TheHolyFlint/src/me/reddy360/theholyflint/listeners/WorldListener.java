@@ -160,7 +160,7 @@ public class WorldListener implements Listener {
 				return;
 			}
 			String[] lines = line.split(":");
-			player.addPotionEffect(new PotionEffect(PotionEffectType.getById(Integer.parseInt(lines[1]))), true);
+			player.addPotionEffect(new PotionEffect(PotionEffectType.getById(Integer.parseInt(lines[1])), Integer.parseInt(lines[2]), Integer.parseInt(lines[3]), true));
 		}
 	}
 }

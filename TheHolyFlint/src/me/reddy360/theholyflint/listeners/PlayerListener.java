@@ -15,6 +15,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -133,6 +134,21 @@ public class PlayerListener implements Listener {
 			player.sendMessage("Position Set: " + position);
 			PluginMain.setPos(player.getName(), position);
 		}
+	}
+	
+	@EventHandler
+	public void onDeath(PlayerDeathEvent e){
+		Player player = e.getEntity();
+		if(player.getKiller() != null){
+			Player killer = player.getKiller();
+			if(killer.getItemInHand().getTypeId() == Item.STICK.id){
+				if(killer.getItemInHand().getItemMeta().hasDisplayName()){
+					if(killer.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.DARK_RED + "Disco Stick"));
+						e.setDeathMessage(ChatColor.BLUE + player.getName() + " was discoed.");
+				}
+			}
+		}
+
 	}
 
 }
