@@ -1,5 +1,7 @@
 package me.reddy360.theholyflint.command;
 
+import me.reddy360.theholyflint.PluginMain;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -9,6 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CommandSetSpawn implements CommandExecutor {
+	PluginMain pluginMain;
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command,

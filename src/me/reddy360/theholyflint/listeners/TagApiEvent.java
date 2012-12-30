@@ -1,5 +1,7 @@
 package me.reddy360.theholyflint.listeners;
 
+import me.reddy360.theholyflint.PluginMain;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,6 +12,7 @@ import de.bananaco.bpermissions.api.ApiLayer;
 import de.bananaco.bpermissions.api.util.CalculableType;
 
 public class TagApiEvent implements Listener {
+	PluginMain pluginMain;
 	@EventHandler
 	public void onTagApi(PlayerReceiveNameTagEvent event){
 		Player player = event.getNamedPlayer();

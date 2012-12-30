@@ -4,6 +4,7 @@ import me.reddy360.theholyflint.PluginMain;
 import net.minecraft.server.v1_4_6.Block;
 import net.minecraft.server.v1_4_6.Item;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Chest;
@@ -26,9 +27,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
-
-import de.bananaco.bpermissions.api.ApiLayer;
-import de.bananaco.bpermissions.api.util.CalculableType;
 
 public class WorldListener implements Listener {
 	PluginMain pluginMain;
@@ -180,6 +178,13 @@ public class WorldListener implements Listener {
 				return;
 			}
 			player.setNoDamageTicks(Integer.parseInt(line.split(":")[1]) * 20);
+		}else if(line.startsWith("TP:")){
+			if(line.split(":").length != 2){
+				return;
+			}
+			String[] split = pluginMain.getConfig().getString("Coords." + line.split(":")[1]).split(":");
+			Location location = new Location(Bukkit.getWorld(split[0]), Integer.parseInt(split[1]) + 0.5, Integer.parseInt(split[2]) + 0.5, Integer.parseInt(split[3]) + 0.5);
+			player.teleport(location);
 		}
 	}
 }
