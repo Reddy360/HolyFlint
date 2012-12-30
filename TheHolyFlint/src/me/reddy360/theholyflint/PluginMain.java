@@ -1,5 +1,7 @@
 package me.reddy360.theholyflint;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +15,7 @@ import me.reddy360.theholyflint.command.CommandGive;
 import me.reddy360.theholyflint.command.CommandKick;
 import me.reddy360.theholyflint.command.CommandLocation;
 import me.reddy360.theholyflint.command.CommandMute;
+import me.reddy360.theholyflint.command.CommandServerStatus;
 import me.reddy360.theholyflint.command.CommandSetSpawn;
 import me.reddy360.theholyflint.command.CommandUnban;
 import me.reddy360.theholyflint.listeners.PlayerListener;
@@ -33,7 +36,7 @@ public class PluginMain extends JavaPlugin{
 	public PluginManager pluginManager;
 	public List<String> mutedPlayers = new ArrayList<String>();
 	public Logger log;
-	public boolean serverStatusSigns = false;;
+	public boolean serverStatusSigns = false;
 	private static HashMap<String, String> positions = new HashMap<String, String>();
 	@Override
 	public void onEnable() {
@@ -42,6 +45,12 @@ public class PluginMain extends JavaPlugin{
 		pluginManager.registerEvents(new PlayerListener(this), this);
 		pluginManager.registerEvents(new WorldListener(this), this);
 		pluginManager.registerEvents(new TagApiEvent(), this);
+		
+		try {
+			new File(getDataFolder(), "config.yml").createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable(){@Override
 		public void run() {
 			Bukkit.getWorld("world").setTime(0L);
@@ -79,13 +88,6 @@ public class PluginMain extends JavaPlugin{
 		pluginManager.addPermission(new Permission("thf.location", PermissionDefault.OP));
 		
 		
-		//Config Checking
-		if(getConfig().contains("Signs.ServerStatus")){
-			serverStatusSigns = true;
-			Signs.setServerStatus(new String[]{"", ChatColor.GREEN + "Online!", "", ""});
-		}
-		
-		
 		//Commands
 		this.getCommand("setspawn").setExecutor(new CommandSetSpawn());
 		this.getCommand("mute").setExecutor(new CommandMute(this));
@@ -98,6 +100,13 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("give").setExecutor(new CommandGive(this));
 		this.getCommand("location").setExecutor(new CommandLocation(this));
 		this.getCommand("serverstatus").setExecutor(new CommandServerStatus(this));
+		
+		
+		//Config Checking
+//		if(getConfig().contains("Signs.ServerStatus")){
+//			serverStatusSigns = true;
+//			Signs.setServerStatus(new String[]{"", ChatColor.GREEN + "Online!", "", ""});
+//		}
 	}
 	
 	public static void setPlayerRank(String player, String rank){
