@@ -23,7 +23,7 @@ public class CommandLocation implements CommandExecutor {
 		}
 		Player player = (Player) sender;
 		if(!player.hasPermission(pluginMain.pluginManager.getPermission("thf.location"))){
-			sender.sendMessage("<INSERT FFAEN HERE>");
+			sender.sendMessage(ChatColor.DARK_RED + "No perm makes server ANGRYYYY");
 			return true;
 		}
 		if(args.length == 1){
