@@ -17,13 +17,14 @@ import me.reddy360.theholyflint.command.CommandLocation;
 import me.reddy360.theholyflint.command.CommandMute;
 import me.reddy360.theholyflint.command.CommandServerStatus;
 import me.reddy360.theholyflint.command.CommandSetSpawn;
+import me.reddy360.theholyflint.command.CommandSetTP;
+import me.reddy360.theholyflint.command.CommandTrainCannon;
 import me.reddy360.theholyflint.command.CommandUnban;
 import me.reddy360.theholyflint.listeners.PlayerListener;
 import me.reddy360.theholyflint.listeners.TagApiEvent;
 import me.reddy360.theholyflint.listeners.WorldListener;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionDefault;
 import org.bukkit.plugin.PluginManager;
@@ -87,6 +88,8 @@ public class PluginMain extends JavaPlugin{
 		pluginManager.addPermission(new Permission("thf.serverstatus", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.location", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.makesign", PermissionDefault.OP));
+		pluginManager.addPermission(new Permission("thf.trains", PermissionDefault.OP));
+		pluginManager.addPermission(new Permission("thf.settp", PermissionDefault.OP));
 		List<String> groups = getConfig().getStringList("Groups");
 		for(String group : groups){
 			pluginManager.addPermission(new Permission("thf.group." + group, PermissionDefault.FALSE));
@@ -104,7 +107,8 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("give").setExecutor(new CommandGive(this));
 		this.getCommand("location").setExecutor(new CommandLocation(this));
 		this.getCommand("serverstatus").setExecutor(new CommandServerStatus(this));
-		
+		this.getCommand("traincannon").setExecutor(new CommandTrainCannon(this));
+		this.getCommand("settp").setExecutor(new CommandSetTP(this));
 		
 		//Configuration Checking
 //		if(getConfig().contains("Signs.ServerStatus")){

@@ -44,4 +44,11 @@ commands:
         aliases: [loc, l]
     serverstatus:
         usage: /ServerStatus <Message>
-        
+    traincannon:
+        usage: /traincannon
+        description: I like trains
+        aliases: [ilk, iliketrains, trains]
+    settp:
+        usage: /settp [name]
+        description: Sets a tp for signs
+        aliases: stp

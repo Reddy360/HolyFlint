@@ -47,7 +47,7 @@ public class CommandKick implements CommandExecutor {
 				sender.sendMessage(ChatColor.DARK_RED + "You can't kick me! I'm exempt!");
 				return true;
 			}
-			player.kickPlayer(ChatColor.translateAlternateColorCodes('&', "[THF] Kicked: " + convertArgs(args)));
+			player.kickPlayer(ChatColor.stripColor("[THF] Kicked: " + convertArgs(args)));
 		}
 		return true;
 	}
