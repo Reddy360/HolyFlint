@@ -24,6 +24,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent.Result;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.permissions.Permission;
 
 import de.bananaco.bpermissions.api.ApiLayer;
@@ -146,6 +147,20 @@ public class PlayerListener implements Listener {
 					if(killer.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.DARK_RED + "Disco Stick"));
 						e.setDeathMessage(ChatColor.BLUE + player.getName() + " was discoed.");
 				}
+			}
+		}
+		if(ApiLayer.hasGroup("world", CalculableType.USER, player.getName(), "New")){
+			player.getInventory().setArmorContents(new ItemStack[]{null, null, null, null});
+			player.getInventory().clear();
+		}else{
+			for(int x = 0; x < player.getInventory().getContents().length; x++){
+				ItemStack item = player.getInventory().getContents()[x];
+				if(item != null){
+					if(item.getTypeId() != Item.FLINT.id){
+						player.getInventory().clear(x);
+					}
+				}
+				
 			}
 		}
 
