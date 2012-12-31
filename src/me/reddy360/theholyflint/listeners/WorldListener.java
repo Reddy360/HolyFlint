@@ -1,6 +1,7 @@
 package me.reddy360.theholyflint.listeners;
 
 import me.reddy360.theholyflint.PluginMain;
+import me.reddy360.theholyflint.TradingHandler;
 import net.minecraft.server.v1_4_6.Block;
 import net.minecraft.server.v1_4_6.Item;
 
@@ -200,6 +201,22 @@ public class WorldListener implements Listener {
 			if(pluginMain.getConfig().contains("Messages." + args[1])){
 				player.sendMessage("[THF] " + pluginMain.getConfig().getString("Messages." + args[1]));
 			}
+		}else if(line.equalsIgnoreCase("TradeTest")){
+			player.openInventory(TradingHandler.getInventory(player, player));
+		}else if(line.startsWith("Voom:")){
+			if(line.split(":").length == 1){
+				return;
+			}
+			player.getWorld().createExplosion(player.getLocation(), 0F);
+			Vector direction = player.getLocation().getDirection();
+			try{
+				player.setVelocity(direction.multiply(Float.parseFloat(line.split(":")[1])));
+				player.setFallDistance(Float.parseFloat(line.split(":")[1]) - (Float.parseFloat(line.split(":")[1]) * 2));
+			}catch(NumberFormatException e){
+				
+			}
+			
+			
 		}
 	}
 }

@@ -52,3 +52,7 @@ commands:
         usage: /settp [name]
         description: Sets a tp for signs
         aliases: stp
+    setmsg:
+        usage: /setmsg [name] [message]
+        description: Sets a message for signs
+        aliases: sm

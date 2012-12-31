@@ -19,10 +19,12 @@ public class CommandSetMsg implements CommandExecutor {
 			sender.sendMessage(ChatColor.DARK_RED + "You don't have permission!");
 			return true;
 		}
-		if(args.length > 2){
+		if(args.length <= 2){
 			return false;
 		}
 		pluginMain.getConfig().set("Messages." + args[0], convert(args));
+		pluginMain.saveConfig();
+		sender.sendMessage(ChatColor.GREEN + "Message " + args[0] + " has been set to " + convert(args));
 		return true;
 	}
 	private String convert(String[] args) {
@@ -30,7 +32,7 @@ public class CommandSetMsg implements CommandExecutor {
 		for(int x = 1; x < args.length; x++){
 			returnValue = returnValue + args[x] + " ";
 		}
-		return returnValue;
+		return ChatColor.translateAlternateColorCodes('&', returnValue);
 	}
 
 }

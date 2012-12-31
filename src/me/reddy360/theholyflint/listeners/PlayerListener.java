@@ -17,6 +17,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -153,6 +154,13 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void onFoodChange(FoodLevelChangeEvent e){
 		e.setCancelled(true);
+	}
+	
+	@EventHandler
+	public void onInventoryMove(InventoryClickEvent e){
+		if(e.getInventory().getName().equalsIgnoreCase("Trading")){
+			e.setCancelled(true);
+		}
 	}
 
 }
