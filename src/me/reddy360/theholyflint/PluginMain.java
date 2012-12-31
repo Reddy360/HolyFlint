@@ -15,6 +15,7 @@ import me.reddy360.theholyflint.command.CommandGive;
 import me.reddy360.theholyflint.command.CommandKick;
 import me.reddy360.theholyflint.command.CommandLocation;
 import me.reddy360.theholyflint.command.CommandMute;
+import me.reddy360.theholyflint.command.CommandSetMsg;
 //import me.reddy360.theholyflint.command.CommandServerStatus;
 import me.reddy360.theholyflint.command.CommandSetSpawn;
 import me.reddy360.theholyflint.command.CommandSetTP;
@@ -94,6 +95,7 @@ public class PluginMain extends JavaPlugin{
 		for(String group : groups){
 			pluginManager.addPermission(new Permission("thf.group." + group, PermissionDefault.FALSE));
 		}
+		pluginManager.addPermission(new Permission("thf.setmsg", PermissionDefault.OP));
 		
 		//Commands
 		this.getCommand("setspawn").setExecutor(new CommandSetSpawn());
@@ -109,6 +111,7 @@ public class PluginMain extends JavaPlugin{
 		//this.getCommand("serverstatus").setExecutor(new CommandServerStatus(this));
 		this.getCommand("traincannon").setExecutor(new CommandTrainCannon(this));
 		this.getCommand("settp").setExecutor(new CommandSetTP(this));
+		this.getCommand("setmsg").setExecutor(new CommandSetMsg(this));
 		
 		//Configuration Checking
 //		if(getConfig().contains("Signs.ServerStatus")){

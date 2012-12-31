@@ -7,6 +7,7 @@ import net.minecraft.server.v1_4_6.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Effect;
+import org.bukkit.EntityEffect;
 import org.bukkit.Location;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Dispenser;
@@ -120,8 +121,6 @@ public class WorldListener implements Listener {
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent e){
 		Player player = e.getPlayer();
-		player.setSaturation(10F);
-		player.setFoodLevel(20);
 		if(e.getFrom().getBlock().getLocation().equals(e.getTo().getBlock().getLocation())){
 			return;
 		}
@@ -191,6 +190,16 @@ public class WorldListener implements Listener {
 			location.setYaw(player.getLocation().getYaw());
 			player.playEffect(player.getLocation(), Effect.MOBSPAWNER_FLAMES, 0);
 			player.teleport(location);
+		}else if(line.equalsIgnoreCase("Troll")){
+			player.playEffect(EntityEffect.DEATH);
+		}else if(line.startsWith("MSG:")){
+			String[] args = line.split(":");
+			if(args.length == 1){
+				return;
+			}
+			if(pluginMain.getConfig().contains("Messages." + args[1])){
+				player.sendMessage("[THF] " + pluginMain.getConfig().getString("Messages." + args[1]));
+			}
 		}
 	}
 }
