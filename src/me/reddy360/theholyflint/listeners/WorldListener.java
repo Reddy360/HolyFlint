@@ -120,6 +120,8 @@ public class WorldListener implements Listener {
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent e){
 		Player player = e.getPlayer();
+		player.setSaturation(10F);
+		player.setFoodLevel(20);
 		if(e.getFrom().getBlock().getLocation().equals(e.getTo().getBlock().getLocation())){
 			return;
 		}

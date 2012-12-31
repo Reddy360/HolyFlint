@@ -28,7 +28,7 @@ public class CommandSetTP implements CommandExecutor {
 			pluginMain.getConfig().set("coords." + args[0], player.getLocation().getWorld().getName() + ":" + player.getLocation().getBlockX() 
 					+ ":" + player.getLocation().getBlockY() + ":" + player.getLocation().getBlockZ());
 			pluginMain.saveConfig();
-			player.sendMessage(ChatColor.GREEN + "TP Sign Coord set at" + pluginMain.getConfig().getString("coords." + args[0]));
+			player.sendMessage(ChatColor.GREEN + "TP Sign Coord set at " + pluginMain.getConfig().getString("coords." + args[0]));
 			return true;	
 		}
 		sender.sendMessage(ChatColor.DARK_RED + "Invalid Syntax. /settp [name]");
