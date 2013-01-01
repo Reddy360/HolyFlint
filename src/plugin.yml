@@ -39,11 +39,11 @@ commands:
         description: Spawns items!
         aliases: [i, item, g]
     location:
-        usage: /Location <Location name>
+        usage: /Location [name]
         description: Used to define locations for other methods/commands
         aliases: [loc, l]
     serverstatus:
-        usage: /ServerStatus <Message>
+        usage: /ServerStatus [Message]
     traincannon:
         usage: /traincannon
         description: I like trains
