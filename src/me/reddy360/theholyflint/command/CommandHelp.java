@@ -13,8 +13,8 @@ public class CommandHelp implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label,
 			String[] args) {
-		sender.sendMessage(ChatColor.BLUE + "Nope.");
-		return false;
+		sender.sendMessage(ChatColor.DARK_BLUE + "Nope.");
+		return true;
 	}
 
 }
