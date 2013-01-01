@@ -47,7 +47,7 @@ commands:
     traincannon:
         usage: /traincannon
         description: I like trains
-        aliases: [ilk, iliketrains, trains]
+        aliases: [ilt, iliketrains, trains]
     settp:
         usage: /settp [name]
         description: Sets a tp for signs
