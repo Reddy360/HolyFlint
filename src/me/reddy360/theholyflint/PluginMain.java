@@ -114,7 +114,7 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("traincannon").setExecutor(new CommandTrainCannon(this));
 		this.getCommand("settp").setExecutor(new CommandSetTP(this));
 		this.getCommand("setmsg").setExecutor(new CommandSetMsg(this));
-		this.getCommand("help").setExecutor(new CommandHelp());
+		this.getCommand("help").setExecutor(new CommandHelp(this));
 		this.getCommand("stuck").setExecutor(new CommandStuck());
 		
 		//Configuration Checking
