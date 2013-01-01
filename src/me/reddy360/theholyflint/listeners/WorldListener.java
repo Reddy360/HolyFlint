@@ -162,7 +162,7 @@ public class WorldListener implements Listener {
 			}
 			
 			
-		}else if(line.startsWith("Chest")){
+		}else if(line.equalsIgnoreCase("Chest")){
 			Location location = signLocation;
 			location.setY(location.getY() - 1);
 			if(location.getBlock().getTypeId() == Block.CHEST.id){
@@ -199,7 +199,7 @@ public class WorldListener implements Listener {
 				return;
 			}
 			if(pluginMain.getConfig().contains("Messages." + args[1])){
-				player.sendMessage("[THF] " + pluginMain.getConfig().getString("Messages." + args[1]));
+				player.sendMessage(ChatColor.GRAY + "[THF] " + ChatColor.RESET + pluginMain.getConfig().getString("Messages." + args[1]));
 			}
 		}else if(line.equalsIgnoreCase("TradeTest")){
 			player.openInventory(TradingHandler.getInventory(player, player));

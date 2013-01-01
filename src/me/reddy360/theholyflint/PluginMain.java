@@ -17,6 +17,7 @@ import me.reddy360.theholyflint.command.CommandKick;
 import me.reddy360.theholyflint.command.CommandLocation;
 import me.reddy360.theholyflint.command.CommandMute;
 import me.reddy360.theholyflint.command.CommandSetMsg;
+import me.reddy360.theholyflint.command.CommandStuck;
 //import me.reddy360.theholyflint.command.CommandServerStatus;
 import me.reddy360.theholyflint.command.CommandSetSpawn;
 import me.reddy360.theholyflint.command.CommandSetTP;
@@ -114,6 +115,7 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("settp").setExecutor(new CommandSetTP(this));
 		this.getCommand("setmsg").setExecutor(new CommandSetMsg(this));
 		this.getCommand("help").setExecutor(new CommandHelp());
+		this.getCommand("stuck").setExecutor(new CommandStuck());
 		
 		//Configuration Checking
 //		if(getConfig().contains("Signs.ServerStatus")){

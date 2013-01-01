@@ -60,3 +60,7 @@ commands:
         usage: /help
         description: Makes help
         aliases: ?
+    stuck:
+        usage: /stuck
+        description: Unstucks you
+        aliases: [tpme, fix]
