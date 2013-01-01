@@ -1,5 +1,5 @@
 name: TheHolyFlint
-version: Alpha 1.1
+version: Alpha 1.1 
 main: me.reddy360.theholyflint.PluginMain
 authors: [reddy360, ffaen123]
 commands:
