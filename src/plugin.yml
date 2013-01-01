@@ -59,7 +59,7 @@ commands:
     help:
         usage: /help
         description: Makes help
-        aliases: ?
+        aliases: [?]
     stuck:
         usage: /stuck
         description: Unstucks you
