@@ -56,3 +56,7 @@ commands:
         usage: /setmsg [name] [message]
         description: Sets a message for signs
         aliases: sm
+    help:
+        usage: /help
+        description: Makes help
+        aliases: ?

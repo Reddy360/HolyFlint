@@ -12,6 +12,7 @@ import me.reddy360.theholyflint.command.CommandDiscoStick;
 import me.reddy360.theholyflint.command.CommandDuty;
 import me.reddy360.theholyflint.command.CommandGamemode;
 import me.reddy360.theholyflint.command.CommandGive;
+import me.reddy360.theholyflint.command.CommandHelp;
 import me.reddy360.theholyflint.command.CommandKick;
 import me.reddy360.theholyflint.command.CommandLocation;
 import me.reddy360.theholyflint.command.CommandMute;
@@ -112,6 +113,7 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("traincannon").setExecutor(new CommandTrainCannon(this));
 		this.getCommand("settp").setExecutor(new CommandSetTP(this));
 		this.getCommand("setmsg").setExecutor(new CommandSetMsg(this));
+		this.getCommand("help").setExecutor(new CommandHelp());
 		
 		//Configuration Checking
 //		if(getConfig().contains("Signs.ServerStatus")){
