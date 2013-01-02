@@ -217,6 +217,13 @@ public class WorldListener implements Listener {
 			}
 			
 			
+		}else if(line.startsWith("Fire:")){
+			if(line.split(":").length == 1){
+				return;
+			}try{
+				player.setFireTicks(Integer.parseInt(line.split(":")[1]) * 20);
+			}catch(NumberFormatException e){
+			}
 		}
 	}
 }

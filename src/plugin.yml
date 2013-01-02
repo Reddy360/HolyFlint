@@ -34,6 +34,10 @@ commands:
         usage: /discostick
         description: Makes disco
         aliases: [ds, disco]
+    flamingdiscostick:
+        usage: /flamingdiscostick
+        description: Makes flaming disco
+        aliases: [fds, burningdownthehouse]
     give:
         usage: /give player stone 1
         description: Spawns items!

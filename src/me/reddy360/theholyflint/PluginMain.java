@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import me.reddy360.theholyflint.command.CommandBan;
 import me.reddy360.theholyflint.command.CommandDiscoStick;
 import me.reddy360.theholyflint.command.CommandDuty;
+import me.reddy360.theholyflint.command.CommandFlamingDiscoStick;
 import me.reddy360.theholyflint.command.CommandGamemode;
 import me.reddy360.theholyflint.command.CommandGive;
 import me.reddy360.theholyflint.command.CommandHelp;
@@ -93,6 +94,8 @@ public class PluginMain extends JavaPlugin{
 		pluginManager.addPermission(new Permission("thf.makesign", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.trains", PermissionDefault.OP));
 		pluginManager.addPermission(new Permission("thf.settp", PermissionDefault.OP));
+		pluginManager.addPermission(new Permission("thf.discostick", PermissionDefault.OP));
+		pluginManager.addPermission(new Permission("thf.flamingdiscostick", PermissionDefault.OP));
 		List<String> groups = getConfig().getStringList("Groups");
 		for(String group : groups){
 			pluginManager.addPermission(new Permission("thf.group." + group, PermissionDefault.FALSE));
@@ -116,6 +119,7 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("setmsg").setExecutor(new CommandSetMsg(this));
 		this.getCommand("help").setExecutor(new CommandHelp(this));
 		this.getCommand("stuck").setExecutor(new CommandStuck());
+		this.getCommand("flamingdiscostick").setExecutor(new CommandFlamingDiscoStick(this));
 		
 		//Configuration Checking
 //		if(getConfig().contains("Signs.ServerStatus")){
