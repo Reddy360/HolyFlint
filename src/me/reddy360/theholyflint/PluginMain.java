@@ -12,6 +12,7 @@ import me.reddy360.theholyflint.command.CommandDiscoStick;
 import me.reddy360.theholyflint.command.CommandDuty;
 import me.reddy360.theholyflint.command.CommandFlamingDiscoStick;
 import me.reddy360.theholyflint.command.CommandGamemode;
+import me.reddy360.theholyflint.command.CommandGetMsg;
 import me.reddy360.theholyflint.command.CommandGive;
 import me.reddy360.theholyflint.command.CommandHelp;
 import me.reddy360.theholyflint.command.CommandKick;
@@ -120,6 +121,7 @@ public class PluginMain extends JavaPlugin{
 		this.getCommand("help").setExecutor(new CommandHelp(this));
 		this.getCommand("stuck").setExecutor(new CommandStuck());
 		this.getCommand("flamingdiscostick").setExecutor(new CommandFlamingDiscoStick(this));
+		this.getCommand("getmsg").setExecutor(new CommandGetMsg());
 		
 		//Configuration Checking
 //		if(getConfig().contains("Signs.ServerStatus")){
